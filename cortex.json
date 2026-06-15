@@ -118,7 +118,12 @@
           "description": "Filter by subscription status",
           "required": false,
           "defaultValue": "active",
-          "options": ["active", "past_due", "canceled", "all"]
+          "options": [
+            "active",
+            "past_due",
+            "canceled",
+            "all"
+          ]
         }
       ]
     },
@@ -131,7 +136,12 @@
           "type": "string",
           "description": "Aggregation period for the report",
           "required": true,
-          "options": ["daily", "weekly", "monthly", "yearly"]
+          "options": [
+            "daily",
+            "weekly",
+            "monthly",
+            "yearly"
+          ]
         },
         {
           "name": "start_date",
@@ -142,32 +152,36 @@
       ]
     }
   ],
-  "ui": [
-    {
-      "section": "Stripe",
-      "fields": [
-        {
-          "key": "stripeSecretKey",
-          "label": "Secret Key",
-          "type": "secret",
-          "description": "Your Stripe secret key (sk_live_... or sk_test_...)",
-          "required": true
-        },
-        {
-          "key": "stripePublishableKey",
-          "label": "Publishable Key",
-          "type": "text",
-          "description": "Your Stripe publishable key (pk_live_... or pk_test_...)"
-        }
-      ]
-    }
-  ],
+  "ui": {
+    "settings": [
+      {
+        "section": "Stripe",
+        "fields": [
+          {
+            "key": "stripeSecretKey",
+            "label": "Secret Key",
+            "type": "secret",
+            "description": "Your Stripe secret key (sk_live_... or sk_test_...)",
+            "required": true
+          },
+          {
+            "key": "stripePublishableKey",
+            "label": "Publishable Key",
+            "type": "text",
+            "description": "Your Stripe publishable key (pk_live_... or pk_test_...)"
+          }
+        ]
+      }
+    ]
+  },
   "dependencies": {},
   "peerDependencies": {
     "cortex": ">=1.0.0"
   },
   "aiDisclosure": {
-    "tools": ["Claude Code (Anthropic)"],
+    "tools": [
+      "Claude Code (Anthropic)"
+    ],
     "humanReview": true
   }
 }
