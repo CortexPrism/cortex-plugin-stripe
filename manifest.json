@@ -1,0 +1,173 @@
+{
+  "name": "cortex-plugin-stripe",
+  "version": "1.0.0",
+  "description": "Manage Stripe products, prices, subscriptions, invoices, and customers",
+  "kind": "esm",
+  "entryPoint": "mod.ts",
+  "runtime": "deno",
+  "author": "CortexPrism",
+  "license": "MIT",
+  "repository": "https://github.com/CortexPrism/cortex-plugin-stripe",
+  "homepage": "",
+  "capabilities": [
+    "tools",
+    "network:fetch"
+  ],
+  "tools": [
+    {
+      "name": "stripe_list_customers",
+      "description": "List Stripe customers with optional email filter",
+      "params": [
+        {
+          "name": "limit",
+          "type": "number",
+          "description": "Maximum customers to return",
+          "required": false,
+          "defaultValue": 20
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Filter by customer email address",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "stripe_get_customer",
+      "description": "Get full details for a specific Stripe customer",
+      "params": [
+        {
+          "name": "customer_id",
+          "type": "string",
+          "description": "Stripe customer ID (e.g. cus_xxx)",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "stripe_list_products",
+      "description": "List Stripe products and their prices",
+      "params": [
+        {
+          "name": "active_only",
+          "type": "boolean",
+          "description": "Only show active products",
+          "required": false,
+          "defaultValue": true
+        },
+        {
+          "name": "limit",
+          "type": "number",
+          "description": "Maximum products to return",
+          "required": false,
+          "defaultValue": 20
+        }
+      ]
+    },
+    {
+      "name": "stripe_create_checkout",
+      "description": "Create a Stripe Checkout session for a customer",
+      "params": [
+        {
+          "name": "customer_id",
+          "type": "string",
+          "description": "Stripe customer ID",
+          "required": true
+        },
+        {
+          "name": "price_id",
+          "type": "string",
+          "description": "Stripe price ID for the line item",
+          "required": true
+        },
+        {
+          "name": "success_url",
+          "type": "string",
+          "description": "URL to redirect after successful payment",
+          "required": true
+        },
+        {
+          "name": "cancel_url",
+          "type": "string",
+          "description": "URL to redirect after cancelled payment",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "description": "Quantity of the line item",
+          "required": false,
+          "defaultValue": 1
+        }
+      ]
+    },
+    {
+      "name": "stripe_list_subscriptions",
+      "description": "List subscriptions with optional filters",
+      "params": [
+        {
+          "name": "customer_id",
+          "type": "string",
+          "description": "Filter by Stripe customer ID",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Filter by subscription status",
+          "required": false,
+          "defaultValue": "active",
+          "options": ["active", "past_due", "canceled", "all"]
+        }
+      ]
+    },
+    {
+      "name": "stripe_revenue_report",
+      "description": "Generate a revenue summary report for a time period",
+      "params": [
+        {
+          "name": "period",
+          "type": "string",
+          "description": "Aggregation period for the report",
+          "required": true,
+          "options": ["daily", "weekly", "monthly", "yearly"]
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "description": "Start date in YYYY-MM-DD format",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "ui": [
+    {
+      "section": "Stripe",
+      "fields": [
+        {
+          "key": "stripeSecretKey",
+          "label": "Secret Key",
+          "type": "secret",
+          "description": "Your Stripe secret key (sk_live_... or sk_test_...)",
+          "required": true
+        },
+        {
+          "key": "stripePublishableKey",
+          "label": "Publishable Key",
+          "type": "text",
+          "description": "Your Stripe publishable key (pk_live_... or pk_test_...)"
+        }
+      ]
+    }
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "cortex": ">=1.0.0"
+  },
+  "aiDisclosure": {
+    "tools": ["Claude Code (Anthropic)"],
+    "humanReview": true
+  }
+}
