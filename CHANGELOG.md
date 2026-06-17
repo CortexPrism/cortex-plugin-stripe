@@ -1,13 +1,15 @@
 # Changelog
 
-## [Unreleased]
+## [1.0.1] — 2026-06-17
 
 ### Added
+
 - Initial project setup
 
 ## [1.0.0] — 2026-06-15
 
 ### Added
+
 - Initial release of cortex-plugin-stripe
 - `stripe_list_customers` — List customers with email filter
 - `stripe_get_customer` — Get customer details

@@ -1,6 +1,6 @@
 {
   "name": "cortex-plugin-stripe",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Manage Stripe products, prices, subscriptions, invoices, and customers",
   "kind": "esm",
   "entryPoint": "mod.ts",
