@@ -1,6 +1,6 @@
 {
   "name": "cortex-plugin-stripe",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Manage Stripe products, prices, subscriptions, invoices, and customers",
   "kind": "esm",
   "entryPoint": "mod.ts",
@@ -8,7 +8,7 @@
   "author": "CortexPrism",
   "license": "MIT",
   "repository": "https://github.com/CortexPrism/cortex-plugin-stripe",
-  "homepage": "",
+  "homepage": "https://github.com/CortexPrism/cortex-plugin-stripe",
   "capabilities": [
     "tools",
     "network:fetch"
@@ -23,7 +23,7 @@
           "type": "number",
           "description": "Maximum customers to return",
           "required": false,
-          "defaultValue": 20
+          "default": 20
         },
         {
           "name": "email",
@@ -54,14 +54,14 @@
           "type": "boolean",
           "description": "Only show active products",
           "required": false,
-          "defaultValue": true
+          "default": true
         },
         {
           "name": "limit",
           "type": "number",
           "description": "Maximum products to return",
           "required": false,
-          "defaultValue": 20
+          "default": 20
         }
       ]
     },
@@ -98,7 +98,7 @@
           "type": "number",
           "description": "Quantity of the line item",
           "required": false,
-          "defaultValue": 1
+          "default": 1
         }
       ]
     },
@@ -117,8 +117,8 @@
           "type": "string",
           "description": "Filter by subscription status",
           "required": false,
-          "defaultValue": "active",
-          "options": [
+          "default": "active",
+          "enum": [
             "active",
             "past_due",
             "canceled",
@@ -136,7 +136,7 @@
           "type": "string",
           "description": "Aggregation period for the report",
           "required": true,
-          "options": [
+          "enum": [
             "daily",
             "weekly",
             "monthly",
