@@ -1,6 +1,6 @@
 {
   "name": "cortex-plugin-stripe",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Manage Stripe products, prices, subscriptions, invoices, and customers",
   "kind": "esm",
   "entryPoint": "mod.ts",
@@ -23,7 +23,7 @@
           "type": "number",
           "description": "Maximum customers to return",
           "required": false,
-          "default": 20
+          "defaultValue": 20
         },
         {
           "name": "email",
@@ -54,14 +54,14 @@
           "type": "boolean",
           "description": "Only show active products",
           "required": false,
-          "default": true
+          "defaultValue": true
         },
         {
           "name": "limit",
           "type": "number",
           "description": "Maximum products to return",
           "required": false,
-          "default": 20
+          "defaultValue": 20
         }
       ]
     },
@@ -98,7 +98,7 @@
           "type": "number",
           "description": "Quantity of the line item",
           "required": false,
-          "default": 1
+          "defaultValue": 1
         }
       ]
     },
@@ -117,7 +117,7 @@
           "type": "string",
           "description": "Filter by subscription status",
           "required": false,
-          "default": "active",
+          "defaultValue": "active",
           "enum": [
             "active",
             "past_due",
@@ -176,7 +176,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "cortex": ">=1.0.0"
+    "cortex": ">=0.51.0"
   },
   "aiDisclosure": {
     "tools": [
